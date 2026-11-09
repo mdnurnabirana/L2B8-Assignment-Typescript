@@ -1,9 +1,7 @@
-// Problem 1
 const multiplyValue = (value: number, multiplier?: number): number => {
   return multiplier !== undefined ? value * multiplier : value * 2;
 };
 
-// Problem 2
 const processInput = (input: string | number | boolean): string | number => {
   if (typeof input === "string") {
     return input.trim().toLowerCase();
@@ -14,7 +12,6 @@ const processInput = (input: string | number | boolean): string | number => {
   }
 };
 
-// Problem 3
 const formatCoordinate = (
   location: readonly [number, number, string],
 ): string => {
@@ -22,7 +19,6 @@ const formatCoordinate = (
   return `Location: ${locationName} (${latitude}, ${longitude})`;
 };
 
-// Problem 4
 const concatenateArrays = <T>(...arrays: T[][]): T[] => {
   const result: T[] = [];
 
@@ -35,7 +31,6 @@ const concatenateArrays = <T>(...arrays: T[][]): T[] => {
   return result;
 };
 
-// Problem 5
 interface Course {
   title: string;
   students: number;
@@ -51,12 +46,10 @@ const getPopularCourses = (
   );
 };
 
-// Problem 6
 const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
   return items.map((item) => item[key]);
 };
 
-// Problem 7
 class Employee {
   constructor(
     protected name: string,
@@ -81,3 +74,15 @@ class Manager extends Employee {
     return `Manager of ${this.department}: ${this.name}`;
   }
 }
+
+const validateAgeAsync = (age: number): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    if (age >= 18) {
+      setTimeout(() => {
+        resolve("Access Granted");
+      }, 1000);
+    } else {
+      reject(new Error("Access Denied: Must be 18 or older"));
+    }
+  });
+};
